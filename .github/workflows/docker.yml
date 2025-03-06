@@ -30,7 +30,8 @@ jobs:
         if: always()
         run: |
           #docker build --cache-from ${RC_NAME}:cache -t ${RC_NAME} -f docker/Dockerfile .
-          docker build --no-cache -t ${RC_NAME} -f docker/Dockerfile .
+          #docker build --no-cache -t ${RC_NAME} -f docker/Dockerfile .
+          docker build --no-cache -t ${RC_NAME} -f docker/Dockerfile.focal .
 
           docker tag ${RC_NAME} ${RC_NAME}:${GITHUB_SHA}
           docker tag ${RC_NAME} ${RC_NAME}:cache
